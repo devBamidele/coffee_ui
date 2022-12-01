@@ -1,13 +1,29 @@
 import 'package:coffee_ui/utils/coffee_type.dart';
 import 'package:coffee_ui/utils/constants.dart';
+import 'package:coffee_ui/utils/sample_data.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/coffee_tile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  // User tapped on coffee types
+  coffeeTypeSelected(int index) {
+    setState(() {
+      for (int num = 0; num < sampleData.length; num++) {
+        sampleData[num][1] = false;
+      }
+      sampleData[index][1] = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,14 +84,18 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: pageSpacing),
                 child: SizedBox(
                   height: 50,
-                  child: ListView(
+                  child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    children: const [
-                      CoffeeType(
-                        coffeeType: 'Cappuccino',
-                        selected: true,
-                      ),
-                    ],
+                    itemCount: sampleData.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return CoffeeType(
+                        coffeeType: sampleData[index][0],
+                        selected: sampleData[index][1],
+                        onTap: () {
+                          coffeeTypeSelected(index);
+                        },
+                      );
+                    },
                   ),
                 ),
               ),
@@ -83,9 +103,7 @@ class HomePage extends StatelessWidget {
                 height: 320,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    CoffeeTile(),
-                  ],
+                  children: const [CoffeeTile()],
                 ),
               )
             ],
