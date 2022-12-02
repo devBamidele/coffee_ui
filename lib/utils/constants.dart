@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-const colorBackground = Color(0xff0C1015);
+const colorBackground = Color(0xff0C0F14);
 final borderColor = Colors.grey.shade600;
+const colorSec = Color(0xffD17842);
 
 double pageSpacing = 20;
 

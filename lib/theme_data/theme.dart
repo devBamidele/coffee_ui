@@ -5,9 +5,14 @@ class MyTheme {
   ThemeData themeData = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: colorBackground,
-    primarySwatch: Colors.orange,
     inputDecorationTheme: InputDecorationTheme(
-      focusedBorder: inputBorder,
+      // prefixIconColor: colorSec,
+      focusedBorder: inputBorder.copyWith(
+        borderSide: const BorderSide(
+          color: Colors.white60,
+          width: 1.5,
+        ),
+      ),
       enabledBorder: inputBorder,
     ),
   );

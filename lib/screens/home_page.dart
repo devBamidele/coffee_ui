@@ -25,6 +25,21 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  late FocusNode myFocusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    myFocusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the focus node when the Form is disposed.
+    myFocusNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -59,54 +74,72 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: pageSpacing),
-                child: Text(
-                  'Find the best coffee for you',
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 56,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: pageSpacing),
+                  child: Text(
+                    'Find the best coffee for you',
+                    style: GoogleFonts.bebasNeue(
+                      fontSize: 56,
+                    ),
                   ),
                 ),
-              ),
-              addVerticalSpace(pageSpacing),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: pageSpacing),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search_rounded),
-                    hintText: 'Find your coffee...',
+                addVerticalSpace(pageSpacing),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: pageSpacing),
+                  child: TextField(
+                    focusNode: myFocusNode,
+                    decoration: InputDecoration(
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.only(left: 18, right: 18),
+                        child: Icon(
+                          Icons.coffee_rounded,
+                          color: myFocusNode.hasPrimaryFocus
+                              ? colorSec
+                              : borderColor,
+                        ),
+                      ),
+                      hintText: 'Find your coffee...',
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: pageSpacing),
-                child: SizedBox(
-                  height: 50,
-                  child: ListView.builder(
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: pageSpacing),
+                  child: SizedBox(
+                    height: 50,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: sampleData.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return CoffeeType(
+                          coffeeType: sampleData[index][0],
+                          selected: sampleData[index][1],
+                          onTap: () {
+                            coffeeTypeSelected(index);
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 320,
+                  child: ListView(
                     scrollDirection: Axis.horizontal,
-                    itemCount: sampleData.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CoffeeType(
-                        coffeeType: sampleData[index][0],
-                        selected: sampleData[index][1],
-                        onTap: () {
-                          coffeeTypeSelected(index);
-                        },
-                      );
-                    },
+                    children: const [
+                      CoffeeTile(
+                        path: 'assets/images/coffee1.jpg',
+                        price: 4,
+                        extras: 'With out milk',
+                        coffee: 'Cappuccino',
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 320,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: const [CoffeeTile()],
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

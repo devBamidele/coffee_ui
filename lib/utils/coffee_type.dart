@@ -25,7 +25,7 @@ class CoffeeType extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: selected ? Colors.orangeAccent : borderColor,
+              color: selected ? colorSec : borderColor,
             ),
           ),
         ),
