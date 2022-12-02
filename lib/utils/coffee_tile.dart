@@ -12,10 +12,12 @@ class CoffeeTile extends StatelessWidget {
     required this.price,
     required this.coffee,
     required this.extras,
+    required this.rating,
   }) : super(key: key);
 
   final String path;
   final num price;
+  final num rating;
   final String coffee;
   final String extras;
 
@@ -24,12 +26,12 @@ class CoffeeTile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         left: pageSpacing,
-        right: pageSpacing,
-        bottom: 15,
+        right: 5,
+        // bottom: 15,
       ),
       child: ClipRRect(
         // The most exterior rectangle
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: circularBorder,
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -46,51 +48,55 @@ class CoffeeTile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                // The Rectangle clipping the image
-                borderRadius: BorderRadius.circular(18),
-                child: Stack(
-                  children: [
-                    SizedBox(
-                      height: 180,
-                      width: double.maxFinite,
-                      child: Image.asset(
-                        path,
-                        fit: BoxFit.fitWidth,
+              Material(
+                elevation: 8,
+                borderRadius: circularBorder,
+                child: ClipRRect(
+                  // The Rectangle clipping the image
+                  borderRadius: circularBorder,
+                  child: Stack(
+                    children: [
+                      SizedBox(
+                        height: 180,
+                        width: double.maxFinite,
+                        child: Image.asset(
+                          path,
+                          fit: BoxFit.fitWidth,
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      right: 0,
-                      child: SizedBox(
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.star_rate_rounded,
-                              size: 21,
-                              color: colorSec,
-                            ),
-                            addHorizontalSpace(2.5),
-                            const Text(
-                              '4.2',
-                              style: TextStyle(
-                                fontSize: 13.5,
-                                fontWeight: FontWeight.w800,
+                      Positioned(
+                        right: 0,
+                        child: SizedBox(
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.star_rate_rounded,
+                                size: 21,
+                                color: colorSec,
                               ),
-                            )
-                          ],
+                              addHorizontalSpace(2.5),
+                              Text(
+                                rating.toString(),
+                                style: const TextStyle(
+                                  fontSize: 13.5,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              )
+                            ],
+                          ),
+                        ).frosted(
+                          blur: 3,
+                          frostColor: Colors.transparent,
+                          width: 68,
+                          height: 27,
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(20),
+                          ),
+                          padding: const EdgeInsets.only(left: 10),
                         ),
-                      ).frosted(
-                        blur: 3,
-                        frostColor: Colors.transparent,
-                        width: 68,
-                        height: 27,
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(20),
-                        ),
-                        padding: const EdgeInsets.only(left: 10),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
               Padding(
@@ -108,7 +114,7 @@ class CoffeeTile extends StatelessWidget {
                     addVerticalSpace(4),
                     Text(
                       extras,
-                      style: TextStyle(color: Colors.grey[700]),
+                      style: TextStyle(color: Colors.grey[500]),
                     ),
                   ],
                 ),
@@ -127,7 +133,7 @@ class CoffeeTile extends StatelessWidget {
                       width: 32,
                       decoration: BoxDecoration(
                         color: colorSec,
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(
                         Icons.add,

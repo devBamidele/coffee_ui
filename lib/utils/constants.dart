@@ -5,6 +5,7 @@ final borderColor = Colors.grey.shade600;
 const colorSec = Color(0xffD17842);
 
 double pageSpacing = 20;
+double borderRadius = 22;
 
 final inputBorder = OutlineInputBorder(
   borderSide: BorderSide(color: borderColor),
@@ -12,3 +13,5 @@ final inputBorder = OutlineInputBorder(
     Radius.circular(10),
   ),
 );
+
+final circularBorder = BorderRadius.circular(borderRadius);

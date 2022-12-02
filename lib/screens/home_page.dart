@@ -18,10 +18,10 @@ class _HomePageState extends State<HomePage> {
   // User tapped on coffee types
   coffeeTypeSelected(int index) {
     setState(() {
-      for (int num = 0; num < sampleData.length; num++) {
-        sampleData[num][1] = false;
+      for (int num = 0; num < coffeeTypes.length; num++) {
+        coffeeTypes[num][1] = false;
       }
-      sampleData[index][1] = true;
+      coffeeTypes[index][1] = true;
     });
   }
 
@@ -64,6 +64,10 @@ class _HomePageState extends State<HomePage> {
               label: '',
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_bag_rounded),
+              label: '',
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
               label: '',
             ),
@@ -74,71 +78,81 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: pageSpacing),
-                  child: Text(
-                    'Find the best coffee for you',
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 56,
-                    ),
-                  ),
-                ),
-                addVerticalSpace(pageSpacing),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: pageSpacing),
-                  child: TextField(
-                    focusNode: myFocusNode,
-                    decoration: InputDecoration(
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.only(left: 18, right: 18),
-                        child: Icon(
-                          Icons.coffee_rounded,
-                          color: myFocusNode.hasPrimaryFocus
-                              ? colorSec
-                              : borderColor,
-                        ),
+          child: ScrollConfiguration(
+            behavior: ScrollConfiguration.of(context).copyWith(
+              scrollbars: false,
+              physics: const BouncingScrollPhysics(),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: pageSpacing),
+                    child: Text(
+                      'Find the best coffee for you',
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 56,
                       ),
-                      hintText: 'Find your coffee...',
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: pageSpacing),
-                  child: SizedBox(
-                    height: 50,
+                  addVerticalSpace(pageSpacing),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: pageSpacing),
+                    child: TextField(
+                      focusNode: myFocusNode,
+                      decoration: InputDecoration(
+                        prefixIcon: Padding(
+                          padding: const EdgeInsets.only(left: 18, right: 18),
+                          child: Icon(
+                            Icons.coffee_rounded,
+                            color: myFocusNode.hasPrimaryFocus
+                                ? colorSec
+                                : borderColor,
+                          ),
+                        ),
+                        hintText: 'Find your coffee...',
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: pageSpacing),
+                    child: SizedBox(
+                      height: 50,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: coffeeTypes.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          List items = coffeeTypes[index];
+                          return CoffeeType(
+                            coffeeType: items[0],
+                            selected: items[1],
+                            onTap: () {
+                              coffeeTypeSelected(index);
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 305,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: sampleData.length,
+                      itemCount: coffeeTiles.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return CoffeeType(
-                          coffeeType: sampleData[index][0],
-                          selected: sampleData[index][1],
-                          onTap: () {
-                            coffeeTypeSelected(index);
-                          },
+                        Map<String, dynamic> item = coffeeTiles[index];
+                        return CoffeeTile(
+                          path: item['path'],
+                          price: item['price'],
+                          extras: item['extras'],
+                          coffee: item['coffee'],
+                          rating: item['rating'],
                         );
                       },
                     ),
-                  ),
-                ),
-                SizedBox(
-                  height: 320,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: const [
-                      CoffeeTile(
-                        path: 'assets/images/coffee1.jpg',
-                        price: 4,
-                        extras: 'With out milk',
-                        coffee: 'Cappuccino',
-                      ),
-                    ],
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
