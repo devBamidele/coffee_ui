@@ -102,6 +102,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Header Text
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: pageSpacing),
                     child: Text(
@@ -112,6 +113,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   addVerticalSpace(pageSpacing),
+                  // Text Field
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: pageSpacing),
                     child: TextField(
@@ -130,6 +132,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  // Coffee Types
                   Padding(
                     padding: EdgeInsets.only(bottom: pageSpacing, top: 30),
                     child: SizedBox(
@@ -148,6 +151,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  // Coffee Tiles
                   SizedBox(
                     height: 310,
                     child: ListView.builder(
@@ -156,6 +160,7 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (BuildContext context, int index) {
                         Map<String, dynamic> item = coffeeTiles[index];
                         return CoffeeTile(
+                          index: index,
                           path: item['path'],
                           price: item['price'],
                           extras: item['extras'],
@@ -165,6 +170,7 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                   ),
+                  // The 'Special for you text'
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: pageSpacing,

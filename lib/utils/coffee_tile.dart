@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:blur/blur.dart';
+import 'package:coffee_ui/app_router/router.gr.dart';
 import 'package:coffee_ui/utils/custom_functions.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ class CoffeeTile extends StatelessWidget {
     required this.coffee,
     required this.extras,
     required this.rating,
+    required this.index,
   }) : super(key: key);
 
   final String path;
@@ -20,6 +23,7 @@ class CoffeeTile extends StatelessWidget {
   final num rating;
   final String coffee;
   final String extras;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +51,20 @@ class CoffeeTile extends StatelessWidget {
                     borderRadius: circularBorder,
                     child: Stack(
                       children: [
-                        SizedBox(
-                          height: 180,
-                          width: double.maxFinite,
-                          child: Image.asset(
-                            path,
-                            fit: BoxFit.fitWidth,
+                        GestureDetector(
+                          onTap: () => context.router.push(
+                            SecondPageRoute(index: index),
+                          ),
+                          child: SizedBox(
+                            height: 180,
+                            width: double.maxFinite,
+                            child: Hero(
+                              tag: index.toString(),
+                              child: Image.asset(
+                                path,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
                           ),
                         ),
                         Positioned(

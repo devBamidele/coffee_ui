@@ -29,9 +29,13 @@ class AppRouter extends _i3.RootStackRouter {
       );
     },
     SecondPageRoute.name: (routeData) {
+      final args = routeData.argsAs<SecondPageRouteArgs>();
       return _i3.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i2.SecondPage(),
+        child: _i2.SecondPage(
+          key: args.key,
+          index: args.index,
+        ),
         opaque: true,
         barrierDismissible: false,
       );
@@ -65,12 +69,34 @@ class HomePageRoute extends _i3.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.SecondPage]
-class SecondPageRoute extends _i3.PageRouteInfo<void> {
-  const SecondPageRoute()
-      : super(
+class SecondPageRoute extends _i3.PageRouteInfo<SecondPageRouteArgs> {
+  SecondPageRoute({
+    _i4.Key? key,
+    required int index,
+  }) : super(
           SecondPageRoute.name,
           path: '/secondPage',
+          args: SecondPageRouteArgs(
+            key: key,
+            index: index,
+          ),
         );
 
   static const String name = 'SecondPageRoute';
+}
+
+class SecondPageRouteArgs {
+  const SecondPageRouteArgs({
+    this.key,
+    required this.index,
+  });
+
+  final _i4.Key? key;
+
+  final int index;
+
+  @override
+  String toString() {
+    return 'SecondPageRouteArgs{key: $key, index: $index}';
+  }
 }

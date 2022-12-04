@@ -7,6 +7,7 @@ const colorSec = Color(0xffD17842);
 
 double pageSpacing = 20;
 double borderRadius = 22;
+double borderRadius2 = 25;
 
 final inputBorder = OutlineInputBorder(
   borderSide: BorderSide(color: borderColor),
@@ -16,6 +17,7 @@ final inputBorder = OutlineInputBorder(
 );
 
 final circularBorder = BorderRadius.circular(borderRadius);
+final circularBorder2 = BorderRadius.circular(borderRadius2);
 
 const tileDecoration = BoxDecoration(
   gradient: LinearGradient(
