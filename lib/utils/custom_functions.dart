@@ -1,8 +1,5 @@
 import 'package:intl/intl.dart';
 
-String formatCurrency(num amount, {int decimalCount = 0}) {
-  final formatCurrency = NumberFormat.simpleCurrency(
-    decimalDigits: decimalCount,
-  );
-  return formatCurrency.format(amount);
+String formatCurrency(num amount) {
+  return NumberFormat("###.00", "en_US").format(amount);
 }

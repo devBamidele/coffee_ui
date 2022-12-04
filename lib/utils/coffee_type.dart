@@ -1,4 +1,5 @@
 import 'package:coffee_ui/utils/constants.dart';
+import 'package:coffee_ui/utils/widget_functions.dart';
 import 'package:flutter/material.dart';
 
 class CoffeeType extends StatelessWidget {
@@ -20,13 +21,26 @@ class CoffeeType extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 25),
         child: Center(
-          child: Text(
-            coffeeType,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: selected ? colorSec : borderColor,
-            ),
+          child: Column(
+            children: [
+              Text(
+                coffeeType,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: selected ? colorSec : borderColor,
+                ),
+              ),
+              addVerticalSpace(10),
+              Container(
+                width: 7,
+                height: 7,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: selected ? colorSec : colorBackground,
+                ),
+              ),
+            ],
           ),
         ),
       ),

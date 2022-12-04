@@ -15,3 +15,14 @@ final inputBorder = OutlineInputBorder(
 );
 
 final circularBorder = BorderRadius.circular(borderRadius);
+
+const tileDecoration = BoxDecoration(
+  gradient: LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xff262B33),
+      colorBackground,
+    ],
+  ),
+);

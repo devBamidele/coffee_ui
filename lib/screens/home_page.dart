@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: pageSpacing),
+                    padding: EdgeInsets.only(bottom: pageSpacing, top: 30),
                     child: SizedBox(
                       height: 50,
                       child: ListView.builder(
@@ -126,16 +126,14 @@ class _HomePageState extends State<HomePage> {
                           return CoffeeType(
                             coffeeType: items[0],
                             selected: items[1],
-                            onTap: () {
-                              coffeeTypeSelected(index);
-                            },
+                            onTap: () => coffeeTypeSelected(index),
                           );
                         },
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 305,
+                    height: 310,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: coffeeTiles.length,
