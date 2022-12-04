@@ -15,6 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
+
   // User tapped on coffee types
   coffeeTypeSelected(int index) {
     setState(() {
@@ -57,25 +59,38 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag_rounded),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              label: '',
-            ),
-          ],
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            canvasColor: const Color(0xff191D24),
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            onTap: (index) => setState(() => currentIndex = index),
+            currentIndex: currentIndex,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            selectedItemColor: const Color(0xffCF7742),
+            unselectedItemColor: const Color(0xff4E5053),
+            iconSize: 28,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_rounded),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag_rounded),
+                label: 'Shop',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite_rounded),
+                label: 'Likes',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_rounded),
+                label: 'Notifications',
+              ),
+            ],
+          ),
         ),
         body: SafeArea(
           child: ScrollConfiguration(
@@ -85,6 +100,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: pageSpacing),
@@ -148,7 +164,17 @@ class _HomePageState extends State<HomePage> {
                         );
                       },
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: pageSpacing,
+                      vertical: pageSpacing,
+                    ),
+                    child: const Text(
+                      'Special for you',
+                      textAlign: TextAlign.right,
+                    ),
+                  ),
                 ],
               ),
             ),

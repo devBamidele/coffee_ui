@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const colorBackground = Color(0xff0C0F14);
 final borderColor = Colors.grey.shade600;
+const colorLightGrey = Color(0xff262B33);
 const colorSec = Color(0xffD17842);
 
 double pageSpacing = 20;
@@ -21,7 +22,7 @@ const tileDecoration = BoxDecoration(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xff262B33),
+      colorLightGrey,
       colorBackground,
     ],
   ),
