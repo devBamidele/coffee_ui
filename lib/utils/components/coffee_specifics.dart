@@ -1,0 +1,35 @@
+import 'package:coffee_ui/utils/constants.dart';
+import 'package:coffee_ui/utils/widget_functions.dart';
+import 'package:flutter/material.dart';
+
+class CoffeeSpecifics extends StatelessWidget {
+  const CoffeeSpecifics({
+    Key? key,
+    required this.child,
+    this.dimension = 52,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+  final Widget child;
+  final double dimension;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: dimension,
+      width: dimension,
+      decoration: BoxDecoration(
+        color: colorPrimaryVariant,
+        borderRadius: BorderRadius.circular(13),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          child,
+          addVerticalSpace(2),
+          Text(text),
+        ],
+      ),
+    );
+  }
+}

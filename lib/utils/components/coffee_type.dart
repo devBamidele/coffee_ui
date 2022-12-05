@@ -37,7 +37,7 @@ class CoffeeType extends StatelessWidget {
                 height: 7,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: selected ? colorSec : colorBackground,
+                  color: selected ? colorSec : colorPrimary,
                 ),
               ),
             ],

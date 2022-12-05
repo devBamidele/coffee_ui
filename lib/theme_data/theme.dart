@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class MyTheme {
   ThemeData themeData = ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: colorBackground,
+    scaffoldBackgroundColor: colorPrimary,
     inputDecorationTheme: InputDecorationTheme(
       // prefixIconColor: colorSec,
       focusedBorder: inputBorder.copyWith(

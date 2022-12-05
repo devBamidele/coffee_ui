@@ -21,9 +21,10 @@ List coffeeTiles = [
   {
     'coffee': 'Cappuccino',
     'path': 'assets/images/coffee1.jpg',
-    'extras': 'With out milk',
+    'extras': 'With Oat milk',
     'price': 4,
     'rating': 4.5,
+    'ingredients': ['Coffee', 'Milk'],
   },
   {
     'coffee': 'Latte',
@@ -31,6 +32,7 @@ List coffeeTiles = [
     'extras': 'With Chocolate',
     'price': 6.5,
     'rating': 4.2,
+    'ingredients': ['Choco', 'Sugar'],
   },
   {
     'coffee': 'Espresso',
@@ -38,5 +40,6 @@ List coffeeTiles = [
     'extras': 'With extra Honey',
     'price': 4.0,
     'rating': 3.9,
+    'ingredients': ['Syrup', 'Honey'],
   },
 ];

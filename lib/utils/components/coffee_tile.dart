@@ -5,7 +5,7 @@ import 'package:coffee_ui/utils/custom_functions.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import '../constants.dart';
 
 class CoffeeTile extends StatelessWidget {
   const CoffeeTile({
@@ -58,12 +58,9 @@ class CoffeeTile extends StatelessWidget {
                           child: SizedBox(
                             height: 180,
                             width: double.maxFinite,
-                            child: Hero(
-                              tag: index.toString(),
-                              child: Image.asset(
-                                path,
-                                fit: BoxFit.fitWidth,
-                              ),
+                            child: Image.asset(
+                              path,
+                              fit: BoxFit.fitWidth,
                             ),
                           ),
                         ),

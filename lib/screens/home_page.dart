@@ -1,11 +1,11 @@
-import 'package:coffee_ui/utils/coffee_type.dart';
+import 'package:coffee_ui/data/sample_data.dart';
+import 'package:coffee_ui/utils/components/coffee_type.dart';
 import 'package:coffee_ui/utils/constants.dart';
-import 'package:coffee_ui/utils/sample_data.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utils/coffee_tile.dart';
+import '../utils/components/coffee_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

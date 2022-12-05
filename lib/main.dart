@@ -1,5 +1,6 @@
 import 'package:coffee_ui/theme_data/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 
 import 'app_router/router.gr.dart';
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp.router(
       builder: (context, child) => ResponsiveWrapper.builder(
         child,

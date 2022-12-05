@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-const colorBackground = Color(0xff0C0F14);
+const colorPrimary = Color(0xff0C0F14);
 final borderColor = Colors.grey.shade600;
 const colorLightGrey = Color(0xff262B33);
 const colorSec = Color(0xffD17842);
+const colorPrimaryVariant = Color(0xff101419);
+const colorSecondaryVariant = Color(0xffD07741);
 
 double pageSpacing = 20;
 double borderRadius = 22;
-double borderRadius2 = 25;
+double borderRadius2 = 30;
 
 final inputBorder = OutlineInputBorder(
   borderSide: BorderSide(color: borderColor),
@@ -25,7 +27,7 @@ const tileDecoration = BoxDecoration(
     end: Alignment.bottomRight,
     colors: [
       colorLightGrey,
-      colorBackground,
+      colorPrimary,
     ],
   ),
 );
