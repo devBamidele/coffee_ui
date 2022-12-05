@@ -1,6 +1,7 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:coffee_ui/data/sample_data.dart';
 import 'package:coffee_ui/utils/components/coffee_type.dart';
+import 'package:coffee_ui/utils/components/special_for_you.dart';
 import 'package:coffee_ui/utils/constants.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
 import 'package:flutter/material.dart';
@@ -141,40 +142,21 @@ class _HomePageState extends State<HomePage> {
                       ),
                       // The 'Special for you text'
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: pageSpacing,
-                          vertical: pageSpacing,
+                        padding: EdgeInsets.only(
+                          left: pageSpacing + 10,
+                          right: pageSpacing,
+                          top: 25,
                         ),
                         child: const Text(
                           'Special for you',
                           textAlign: TextAlign.right,
                         ),
                       ),
+                      const SpecialForYou(),
                     ],
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 15, right: 15, bottom: 25),
-                  child: BottomBarFloating(
-                    indexSelected: currentIndex,
-                    colorSelected: const Color(0xffCF7742),
-                    backgroundColor: const Color(0xff191D24),
-                    borderRadius: circularBorder2,
-                    items: items,
-                    iconSize: 25,
-                    paddingVertical: 20,
-                    color: const Color(0xff4E5053),
-                    onTap: (int index) => setState(() {
-                      currentIndex = index;
-                    }),
-                    animated: true,
-                  ),
-                ),
-              )
             ],
           ),
         ),
