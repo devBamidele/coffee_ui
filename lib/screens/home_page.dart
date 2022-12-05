@@ -1,4 +1,5 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
+import 'package:blur/blur.dart';
 import 'package:coffee_ui/data/sample_data.dart';
 import 'package:coffee_ui/utils/components/coffee_type.dart';
 import 'package:coffee_ui/utils/components/special_for_you.dart';
@@ -147,9 +148,13 @@ class _HomePageState extends State<HomePage> {
                           right: pageSpacing,
                           top: 25,
                         ),
-                        child: const Text(
+                        child: Text(
                           'Special for you',
-                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                            fontSize: 18.5,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white.withOpacity(0.9),
+                          ),
                         ),
                       ),
                       const SpecialForYou(),
@@ -157,6 +162,34 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                    bottom: 25,
+                  ),
+                  child: BottomBarFloating(
+                    indexSelected: currentIndex,
+                    colorSelected: const Color(0xffCF7742),
+                    backgroundColor: Colors.transparent,
+                    items: items,
+                    iconSize: 25.5,
+                    paddingVertical: 20,
+                    color: const Color(0xff4E5053),
+                    onTap: (int index) => setState(() {
+                      currentIndex = index;
+                    }),
+                    duration: const Duration(milliseconds: 200),
+                    animated: true,
+                  ).frosted(
+                    blur: 7,
+                    borderRadius: circularBorder2,
+                    frostColor: colorPrimary,
+                  ),
+                ),
+              )
             ],
           ),
         ),

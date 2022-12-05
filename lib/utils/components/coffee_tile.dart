@@ -141,10 +141,7 @@ class CoffeeTile extends StatelessWidget {
                           Container(
                             height: 34,
                             width: 34,
-                            decoration: BoxDecoration(
-                              color: colorSec,
-                              borderRadius: BorderRadius.circular(13),
-                            ),
+                            decoration: addButtonDecoration,
                             child: const Icon(
                               Icons.add,
                               size: 22,

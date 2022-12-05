@@ -15,14 +15,18 @@ class SpecialForYou extends StatelessWidget {
         // The most exterior rectangle
         borderRadius: circularBorder,
         child: Container(
-          height: 175,
+          constraints: const BoxConstraints(
+            maxHeight: 175,
+            maxWidth: 410,
+          ),
           decoration: tileDecoration,
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 30),
+                  padding: const EdgeInsets.only(right: 25),
                   child: ClipRRect(
                     borderRadius: circularBorder,
                     child: SizedBox(
@@ -35,12 +39,45 @@ class SpecialForYou extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
+                Flexible(
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: Text(
-                      '5 Coffee beans you must',
-                      style: TextStyle(fontSize: 19),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            '5 Coffee Beans You Must Try',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            overflow: TextOverflow.fade,
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(13),
+                              ),
+                              fixedSize: const Size(130, 37),
+                              primary: colorSecondaryVariant,
+                              elevation: 8,
+                              shadowColor:
+                                  colorSecondaryVariant.withOpacity(0.4),
+                            ),
+                            child: const Text(
+                              'Explore',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 )

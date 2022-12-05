@@ -35,6 +35,19 @@ const tileDecoration = BoxDecoration(
   ),
 );
 
+final addButtonDecoration = BoxDecoration(
+  color: colorSec,
+  borderRadius: BorderRadius.circular(13),
+  boxShadow: [
+    BoxShadow(
+      color: colorSecondaryVariant.withOpacity(0.35),
+      spreadRadius: 1.2,
+      blurRadius: 8,
+      offset: const Offset(1, 3), // changes position of shadow
+    ),
+  ],
+);
+
 final buttonShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(12),
 );
