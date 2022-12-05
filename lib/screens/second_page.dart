@@ -34,7 +34,7 @@ class SecondPage extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 475,
+                    height: 470,
                     child: ClipRRect(
                       // The Rectangle clipping the image
                       borderRadius: circularBorder2,

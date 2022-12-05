@@ -1,3 +1,4 @@
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:coffee_ui/data/sample_data.dart';
 import 'package:coffee_ui/utils/components/coffee_type.dart';
 import 'package:coffee_ui/utils/constants.dart';
@@ -17,6 +18,22 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
 
+  List<TabItem> items = const [
+    TabItem(
+      icon: Icons.home_rounded,
+      //title: 'Home',
+    ),
+    TabItem(
+      icon: Icons.shopping_bag_rounded,
+    ),
+    TabItem(
+      icon: Icons.favorite_rounded,
+    ),
+    TabItem(
+      icon: Icons.person_rounded,
+    ),
+  ];
+
   // User tapped on coffee types
   coffeeTypeSelected(int index) {
     setState(() {
@@ -25,21 +42,6 @@ class _HomePageState extends State<HomePage> {
       }
       coffeeTypes[index][1] = true;
     });
-  }
-
-  late FocusNode myFocusNode;
-
-  @override
-  void initState() {
-    super.initState();
-    myFocusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    // Clean up the focus node when the Form is disposed.
-    myFocusNode.dispose();
-    super.dispose();
   }
 
   @override
@@ -59,131 +61,121 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        bottomNavigationBar: Theme(
-          data: Theme.of(context).copyWith(
-            canvasColor: const Color(0xff191D24),
-          ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            onTap: (index) => setState(() => currentIndex = index),
-            currentIndex: currentIndex,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            selectedItemColor: const Color(0xffCF7742),
-            unselectedItemColor: const Color(0xff4E5053),
-            iconSize: 28,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag_rounded),
-                label: 'Shop',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_rounded),
-                label: 'Likes',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_rounded),
-                label: 'Notifications',
-              ),
-            ],
-          ),
-        ),
         body: SafeArea(
-          child: ScrollConfiguration(
-            behavior: ScrollConfiguration.of(context).copyWith(
-              scrollbars: false,
-              physics: const BouncingScrollPhysics(),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Header Text
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: pageSpacing),
-                    child: Text(
-                      'Find the best coffee for you',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 56,
-                      ),
-                    ),
-                  ),
-                  addVerticalSpace(pageSpacing),
-                  // Text Field
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: pageSpacing),
-                    child: TextField(
-                      focusNode: myFocusNode,
-                      decoration: InputDecoration(
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.only(left: 18, right: 18),
-                          child: Icon(
-                            Icons.coffee_rounded,
-                            color: myFocusNode.hasPrimaryFocus
-                                ? colorSec
-                                : borderColor,
+          child: Stack(
+            children: [
+              ScrollConfiguration(
+                behavior: ScrollConfiguration.of(context).copyWith(
+                  scrollbars: false,
+                  physics: const BouncingScrollPhysics(),
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Header Text
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: pageSpacing),
+                        child: Text(
+                          'Find the best coffee for you',
+                          style: GoogleFonts.bebasNeue(
+                            fontSize: 56,
                           ),
                         ),
-                        hintText: 'Find your coffee...',
                       ),
-                    ),
-                  ),
-                  // Coffee Types
-                  Padding(
-                    padding: EdgeInsets.only(bottom: pageSpacing, top: 30),
-                    child: SizedBox(
-                      height: 50,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: coffeeTypes.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          List items = coffeeTypes[index];
-                          return CoffeeType(
-                            coffeeType: items[0],
-                            selected: items[1],
-                            onTap: () => coffeeTypeSelected(index),
-                          );
-                        },
+                      addVerticalSpace(pageSpacing),
+                      // Text Field
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: pageSpacing),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            prefixIcon: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 18, right: 18),
+                              child: Icon(
+                                Icons.coffee_rounded,
+                                color: borderColor,
+                              ),
+                            ),
+                            hintText: 'Find your coffee...',
+                          ),
+                        ),
                       ),
-                    ),
+                      // Coffee Types
+                      Padding(
+                        padding: EdgeInsets.only(bottom: pageSpacing, top: 30),
+                        child: SizedBox(
+                          height: 50,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: coffeeTypes.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              List items = coffeeTypes[index];
+                              return CoffeeType(
+                                coffeeType: items[0],
+                                selected: items[1],
+                                onTap: () => coffeeTypeSelected(index),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                      // Coffee Tiles
+                      SizedBox(
+                        height: 310,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: coffeeTiles.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            Map<String, dynamic> item = coffeeTiles[index];
+                            return CoffeeTile(
+                              index: index,
+                              path: item['path'],
+                              price: item['price'],
+                              extras: item['extras'],
+                              coffee: item['coffee'],
+                              rating: item['rating'],
+                            );
+                          },
+                        ),
+                      ),
+                      // The 'Special for you text'
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: pageSpacing,
+                          vertical: pageSpacing,
+                        ),
+                        child: const Text(
+                          'Special for you',
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                    ],
                   ),
-                  // Coffee Tiles
-                  SizedBox(
-                    height: 310,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: coffeeTiles.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        Map<String, dynamic> item = coffeeTiles[index];
-                        return CoffeeTile(
-                          index: index,
-                          path: item['path'],
-                          price: item['price'],
-                          extras: item['extras'],
-                          coffee: item['coffee'],
-                          rating: item['rating'],
-                        );
-                      },
-                    ),
-                  ),
-                  // The 'Special for you text'
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: pageSpacing,
-                      vertical: pageSpacing,
-                    ),
-                    child: const Text(
-                      'Special for you',
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 25),
+                  child: BottomBarFloating(
+                    indexSelected: currentIndex,
+                    colorSelected: const Color(0xffCF7742),
+                    backgroundColor: const Color(0xff191D24),
+                    borderRadius: circularBorder2,
+                    items: items,
+                    iconSize: 25,
+                    paddingVertical: 20,
+                    color: const Color(0xff4E5053),
+                    onTap: (int index) => setState(() {
+                      currentIndex = index;
+                    }),
+                    animated: true,
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
