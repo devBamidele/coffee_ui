@@ -2,6 +2,7 @@ import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:blur/blur.dart';
 import 'package:coffee_ui/data/sample_data.dart';
 import 'package:coffee_ui/utils/components/coffee_type.dart';
+import 'package:coffee_ui/utils/components/icon_dot.dart';
 import 'package:coffee_ui/utils/components/special_for_you.dart';
 import 'package:coffee_ui/utils/constants.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
@@ -20,19 +21,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
 
-  List<TabItem> items = const [
-    TabItem(
+  List<TabItem> items = [
+    const TabItem(
       icon: Icons.home_rounded,
-      //title: 'Home',
+      count: IconDot(
+        counter: 2,
+      ),
     ),
-    TabItem(
+    const TabItem(
       icon: Icons.shopping_bag_rounded,
+      count: IconDot(),
     ),
-    TabItem(
+    const TabItem(
       icon: Icons.favorite_rounded,
+      count: IconDot(),
     ),
-    TabItem(
+    const TabItem(
       icon: Icons.person_rounded,
+      count: IconDot(),
     ),
   ];
 
@@ -175,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                     colorSelected: const Color(0xffCF7742),
                     backgroundColor: Colors.transparent,
                     items: items,
-                    iconSize: 25.5,
+                    iconSize: 26,
                     paddingVertical: 20,
                     color: const Color(0xff4E5053),
                     onTap: (int index) => setState(() {
@@ -184,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                     duration: const Duration(milliseconds: 200),
                     animated: true,
                   ).frosted(
-                    blur: 7,
+                    blur: 10,
                     borderRadius: circularBorder2,
                     frostColor: colorPrimary,
                   ),

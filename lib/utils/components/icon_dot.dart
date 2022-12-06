@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+
+class IconDot extends StatelessWidget {
+  const IconDot({
+    Key? key,
+    this.counter = 0,
+  }) : super(key: key);
+
+  final int counter;
+
+  @override
+  Widget build(BuildContext context) {
+    return counter > 0
+        ? Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Container(
+              padding: const EdgeInsets.only(top: 1.5),
+              decoration: const BoxDecoration(
+                color: Colors.red,
+                shape: BoxShape.circle,
+              ),
+              constraints: const BoxConstraints(
+                minWidth: 12,
+                minHeight: 12,
+              ),
+              child: Text(
+                counter.toString(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 8,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          )
+        : const SizedBox.shrink();
+  }
+}
