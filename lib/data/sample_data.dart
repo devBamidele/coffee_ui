@@ -1,20 +1,14 @@
 List coffeeTypes = [
-  [
-    'Cappuccino',
-    true,
-  ],
-  [
-    'Latte',
-    false,
-  ],
-  [
-    'Espresso',
-    false,
-  ],
-  [
-    'Flat White',
-    false,
-  ],
+  ['Cappuccino', true],
+  ['Latte', false],
+  ['Espresso', false],
+  ['Flat White', false],
+  ['Frappe', false],
+  ['Mocha', false],
+  ['Americano', false],
+  ['Cortado', false],
+  ['Café au Lait', false],
+  ['Macchiato', false],
 ];
 
 List coffeeTiles = [

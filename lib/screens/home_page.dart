@@ -37,7 +37,9 @@ class _HomePageState extends State<HomePage> {
     ),
     const TabItem(
       icon: Icons.person_rounded,
-      count: IconDot(),
+      count: IconDot(
+        counter: 1,
+      ),
     ),
   ];
 
@@ -154,9 +156,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Text(
                           'Special for you',
-                          style: TextStyle(
-                            fontSize: 18.5,
-                            fontWeight: FontWeight.w500,
+                          style: themeData.textTheme.headline6?.copyWith(
                             color: Colors.white.withOpacity(0.9),
                           ),
                         ),

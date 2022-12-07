@@ -137,7 +137,7 @@ class CoffeeTile extends StatelessWidget {
                               Icons.add,
                               size: 22,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],

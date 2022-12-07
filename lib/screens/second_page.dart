@@ -1,6 +1,7 @@
 import 'package:blur/blur.dart';
 import 'package:coffee_ui/data/sample_data.dart';
 import 'package:coffee_ui/utils/components/coffee_specifics.dart';
+import 'package:coffee_ui/utils/components/custom_elevated_button.dart';
 import 'package:coffee_ui/utils/components/size_text_button.dart';
 import 'package:coffee_ui/utils/constants.dart';
 import 'package:coffee_ui/utils/custom_functions.dart';
@@ -277,18 +278,10 @@ class SecondPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            ElevatedButton(
+                            CustomElevatedButton(
                               onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18),
-                                ),
-                                fixedSize: const Size(230, 50),
-                                primary: colorSecondaryVariant,
-                                elevation: 8,
-                                shadowColor:
-                                    colorSecondaryVariant.withOpacity(0.4),
-                              ),
+                              size: const Size(230, 50),
+                              borderRadius: 18,
                               child: const Text(
                                 'Buy Now',
                                 style: TextStyle(
@@ -296,7 +289,7 @@ class SecondPage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ],

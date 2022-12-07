@@ -1,3 +1,4 @@
+import 'package:coffee_ui/utils/components/custom_elevated_button.dart';
 import 'package:coffee_ui/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class SpecialForYou extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData themeData = Theme.of(context);
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: pageSpacing, vertical: pageSpacing),
@@ -48,26 +50,17 @@ class SpecialForYou extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          const Text(
+                          Text(
                             '5 Coffee Beans You Must Try',
-                            style: TextStyle(
+                            style: themeData.textTheme.headline6?.copyWith(
                               fontSize: 20,
-                              fontWeight: FontWeight.w600,
                             ),
                             overflow: TextOverflow.fade,
                           ),
-                          ElevatedButton(
+                          CustomElevatedButton(
                             onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(13),
-                              ),
-                              fixedSize: const Size(130, 37),
-                              primary: colorSecondaryVariant,
-                              elevation: 8,
-                              shadowColor:
-                                  colorSecondaryVariant.withOpacity(0.4),
-                            ),
+                            size: const Size(130, 37),
+                            borderRadius: 13,
                             child: const Text(
                               'Explore',
                               style: TextStyle(
@@ -75,7 +68,7 @@ class SpecialForYou extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
