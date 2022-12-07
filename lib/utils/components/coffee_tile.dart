@@ -27,6 +27,7 @@ class CoffeeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData themeData = Theme.of(context);
     return Padding(
       padding: EdgeInsets.only(
         left: pageSpacing,
@@ -77,17 +78,14 @@ class CoffeeTile extends StatelessWidget {
                                 addHorizontalSpace(2.5),
                                 Text(
                                   rating.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 13.5,
-                                    fontWeight: FontWeight.w800,
-                                  ),
+                                  style: themeData.textTheme.caption,
                                 )
                               ],
                             ),
                           ).frosted(
                             blur: 3,
                             frostColor: Colors.transparent,
-                            width: 68,
+                            width: 70,
                             height: 27,
                             borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
@@ -106,34 +104,27 @@ class CoffeeTile extends StatelessWidget {
                     children: [
                       Text(
                         coffee,
-                        style: const TextStyle(
-                          fontSize: 21,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: themeData.textTheme.headline5,
                       ),
                       addVerticalSpace(4),
                       Text(
                         extras,
-                        style: TextStyle(color: Colors.grey[500]),
+                        style: themeData.textTheme.bodyText2,
                       ),
-                      addVerticalSpace(14),
+                      addVerticalSpace(17),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           RichText(
                             text: TextSpan(
                               children: <TextSpan>[
-                                const TextSpan(
-                                  text: '\$ ',
-                                  style: TextStyle(
-                                    color: colorSec,
-                                    fontSize: 19.5,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                                TextSpan(
+                                  text: '\$',
+                                  style: themeData.textTheme.overline,
                                 ),
                                 TextSpan(
                                   text: formatCurrency(price),
-                                  style: const TextStyle(fontSize: 18.5),
+                                  style: themeData.textTheme.headline6,
                                 ),
                               ],
                             ),

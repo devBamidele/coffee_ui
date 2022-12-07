@@ -7,7 +7,6 @@ import 'package:coffee_ui/utils/components/special_for_you.dart';
 import 'package:coffee_ui/utils/constants.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/components/coffee_tile.dart';
 
@@ -54,6 +53,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData themeData = Theme.of(context);
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -86,9 +86,7 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.symmetric(horizontal: pageSpacing),
                         child: Text(
                           'Find the best coffee for you',
-                          style: GoogleFonts.bebasNeue(
-                            fontSize: 56,
-                          ),
+                          style: themeData.textTheme.headline1,
                         ),
                       ),
                       addVerticalSpace(pageSpacing),

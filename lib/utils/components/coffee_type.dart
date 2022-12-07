@@ -16,18 +16,17 @@ class CoffeeType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData themeData = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(left: 25),
+        padding: const EdgeInsets.only(left: 23),
         child: Center(
           child: Column(
             children: [
               Text(
                 coffeeType,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                style: themeData.textTheme.subtitle2?.copyWith(
                   color: selected ? colorSec : borderColor,
                 ),
               ),

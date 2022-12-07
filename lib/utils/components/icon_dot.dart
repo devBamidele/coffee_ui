@@ -14,14 +14,14 @@ class IconDot extends StatelessWidget {
         ? Padding(
             padding: const EdgeInsets.only(top: 5),
             child: Container(
-              padding: const EdgeInsets.only(top: 1.5),
+              padding: const EdgeInsets.only(top: 1.7),
               decoration: const BoxDecoration(
                 color: Colors.red,
                 shape: BoxShape.circle,
               ),
               constraints: const BoxConstraints(
-                minWidth: 12,
-                minHeight: 12,
+                minWidth: 13,
+                minHeight: 13,
               ),
               child: Text(
                 counter.toString(),

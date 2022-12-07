@@ -51,3 +51,56 @@ final addButtonDecoration = BoxDecoration(
 final buttonShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(12),
 );
+
+final TextTheme textThemeDefault = TextTheme(
+  // The Header Text
+  headline1: TextStyle(
+    fontFamily: 'FredokaOne',
+    fontSize: 38,
+    letterSpacing: 0.5,
+    color: Colors.white.withOpacity(0.9),
+  ),
+
+  // The header text for the Category tile
+  headline5: const TextStyle(
+    fontFamily: 'Manrope',
+    fontSize: 18.5,
+    letterSpacing: 0.7,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  ),
+
+  // The price text for the Category tile
+  headline6: const TextStyle(
+    fontFamily: 'Manrope',
+    fontSize: 18.7,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  ),
+
+  // The 'Extra's' text for the Category tile
+  bodyText2: TextStyle(
+    color: Colors.white.withOpacity(0.7),
+  ),
+
+  // The Coffee Types ['Cappuccino', 'Latte', 'Espresso', 'Flat White']
+  subtitle2: const TextStyle(
+    fontFamily: 'Lexend',
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+  ),
+
+  // The style for the Rating Text
+  caption: const TextStyle(
+    fontSize: 13.5,
+    letterSpacing: 1,
+    fontWeight: FontWeight.w800,
+  ),
+
+  // The style for the dollar sign
+  overline: const TextStyle(
+    color: colorSec,
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+  ),
+);
