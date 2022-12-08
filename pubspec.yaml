@@ -95,7 +95,7 @@ flutter:
     - family: Lexend
       fonts:
       - asset: assets/fonts/Lexend-Regular.ttf
-    - family: Lexend
+    - family: Manrope
       fonts:
       - asset: assets/fonts/Manrope-Regular.ttf
 

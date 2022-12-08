@@ -8,11 +8,13 @@ class CoffeeSpecifics extends StatelessWidget {
     required this.child,
     this.dimension = 52,
     required this.text,
+    this.border = 13,
   }) : super(key: key);
 
   final String text;
   final Widget child;
   final double dimension;
+  final double border;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +22,7 @@ class CoffeeSpecifics extends StatelessWidget {
       width: dimension,
       decoration: BoxDecoration(
         color: colorPrimaryVariant,
-        borderRadius: BorderRadius.circular(13),
+        borderRadius: BorderRadius.circular(border),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -1,5 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:coffee_ui/data/sample_data.dart';
+import 'package:coffee_ui/utils/components/app_bar_button.dart';
 import 'package:coffee_ui/utils/components/coffee_specifics.dart';
 import 'package:coffee_ui/utils/components/custom_elevated_button.dart';
 import 'package:coffee_ui/utils/components/size_text_button.dart';
@@ -25,7 +26,7 @@ class SecondPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(12),
           child: ScrollConfiguration(
             behavior: ScrollConfiguration.of(context).copyWith(
               scrollbars: false,
@@ -160,6 +161,28 @@ class SecondPage extends StatelessWidget {
                               blur: 7,
                               frostColor: Colors.transparent,
                               borderRadius: circularBorder2,
+                            ),
+                          ),
+                          const Align(
+                            alignment: Alignment.topLeft,
+                            child: AppBarButton(
+                              left: 12,
+                              child: Icon(
+                                Icons.arrow_back_ios_new_rounded,
+                                size: 21,
+                                color: Color(0xff4E5053),
+                              ),
+                            ),
+                          ),
+                          const Align(
+                            alignment: Alignment.topRight,
+                            child: AppBarButton(
+                              right: 12,
+                              child: Icon(
+                                Icons.arrow_back_ios_new_rounded,
+                                size: 21,
+                                color: Color(0xff4E5053),
+                              ),
                             ),
                           )
                         ],

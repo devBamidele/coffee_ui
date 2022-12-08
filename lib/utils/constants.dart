@@ -66,15 +66,14 @@ final TextTheme textThemeDefault = TextTheme(
     fontFamily: 'Manrope',
     fontSize: 18.5,
     letterSpacing: 0.7,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
     color: Colors.white,
   ),
 
   // The price text for the Category tile
   headline6: const TextStyle(
-    fontFamily: 'Manrope',
     fontSize: 18.7,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
     color: Colors.white,
   ),
 

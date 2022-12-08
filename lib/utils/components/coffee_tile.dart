@@ -111,7 +111,7 @@ class CoffeeTile extends StatelessWidget {
                         extras,
                         style: themeData.textTheme.bodyText2,
                       ),
-                      addVerticalSpace(17),
+                      addVerticalSpace(14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
