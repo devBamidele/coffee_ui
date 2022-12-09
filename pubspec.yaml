@@ -40,6 +40,7 @@ dependencies:
   blur: ^3.1.0
   readmore: ^2.1.0
   awesome_bottom_bar: ^1.2.1
+  like_button: ^2.0.5
   google_fonts:
 
 dev_dependencies:
@@ -98,6 +99,7 @@ flutter:
     - family: Manrope
       fonts:
       - asset: assets/fonts/Manrope-Regular.ttf
+      - asset: assets/fonts/Manrope-Bold.ttf
 
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

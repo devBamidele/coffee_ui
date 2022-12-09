@@ -5,7 +5,7 @@ class AppBarButton extends StatelessWidget {
   const AppBarButton({
     Key? key,
     required this.child,
-    this.top = 25,
+    this.top = 24,
     this.right = 0,
     this.left = 0,
     this.bottom = 0,

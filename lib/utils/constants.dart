@@ -7,6 +7,7 @@ const colorSec = Color(0xffD17842);
 const colorPrimaryVariant = Color(0xff101419);
 const colorSecondaryVariant = Color(0xffD07741);
 const buttonColor = Color(0xff141921);
+const colorGrey = Color(0xff4E5053);
 
 double pageSpacing = 20;
 double borderRadius = 22;
