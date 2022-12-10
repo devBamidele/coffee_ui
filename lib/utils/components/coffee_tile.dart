@@ -106,12 +106,12 @@ class CoffeeTile extends StatelessWidget {
                         coffee,
                         style: themeData.textTheme.headline5,
                       ),
-                      addVerticalSpace(4),
+                      addVerticalSpace(3),
                       Text(
                         extras,
                         style: themeData.textTheme.bodyText2,
                       ),
-                      addVerticalSpace(14),
+                      addVerticalSpace(10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -129,13 +129,18 @@ class CoffeeTile extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Container(
-                            height: 34,
-                            width: 34,
-                            decoration: addButtonDecoration,
-                            child: const Icon(
-                              Icons.add,
-                              size: 22,
+                          Material(
+                            color: colorSec,
+                            borderRadius: BorderRadius.circular(13),
+                            elevation: 5,
+                            shadowColor: colorSecondaryVariant,
+                            child: const SizedBox(
+                              height: 34,
+                              width: 34,
+                              child: Icon(
+                                Icons.add,
+                                size: 22,
+                              ),
                             ),
                           ),
                         ],

@@ -62,6 +62,12 @@ final TextTheme textThemeDefault = TextTheme(
     color: Colors.white.withOpacity(0.9),
   ),
 
+  // The 'Extra's' text for the Category tile
+  headline4: TextStyle(
+    color: Colors.white.withOpacity(0.7),
+    fontSize: 18,
+  ),
+
   // The header text for the Category tile
   headline5: const TextStyle(
     fontFamily: 'Manrope',
@@ -83,6 +89,14 @@ final TextTheme textThemeDefault = TextTheme(
     color: Colors.white.withOpacity(0.7),
   ),
 
+  // The Description text and not 'Description' itself
+  subtitle1: TextStyle(
+    fontFamily: 'Lexend',
+    wordSpacing: 1.2,
+    height: 1.45,
+    color: Colors.white.withOpacity(0.8),
+  ),
+
   // The Coffee Types ['Cappuccino', 'Latte', 'Espresso', 'Flat White']
   subtitle2: const TextStyle(
     fontFamily: 'Lexend',
@@ -91,10 +105,11 @@ final TextTheme textThemeDefault = TextTheme(
   ),
 
   // The style for the Rating Text
-  caption: const TextStyle(
+  caption: TextStyle(
     fontSize: 13.5,
     letterSpacing: 1,
     fontWeight: FontWeight.w800,
+    color: Colors.white.withOpacity(0.9),
   ),
 
   // The style for the dollar sign

@@ -77,7 +77,6 @@ class _HomePageState extends State<HomePage> {
               ScrollConfiguration(
                 behavior: ScrollConfiguration.of(context).copyWith(
                   scrollbars: false,
-                  physics: const BouncingScrollPhysics(),
                 ),
                 child: SingleChildScrollView(
                   child: Column(

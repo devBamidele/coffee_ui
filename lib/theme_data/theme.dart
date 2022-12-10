@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 class MyTheme {
   ThemeData themeData = ThemeData(
+    useMaterial3: true,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.dark,
     textTheme: textThemeDefault,
     scaffoldBackgroundColor: colorPrimary,

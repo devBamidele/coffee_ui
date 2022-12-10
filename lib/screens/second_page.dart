@@ -44,13 +44,12 @@ class SecondPage extends StatelessWidget {
             child: ScrollConfiguration(
               behavior: ScrollConfiguration.of(context).copyWith(
                 scrollbars: false,
-                physics: const BouncingScrollPhysics(),
               ),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 470,
+                      height: 465,
                       child: ClipRRect(
                         // The Rectangle clipping the image
                         borderRadius: circularBorder2,
@@ -87,12 +86,12 @@ class SecondPage extends StatelessWidget {
                                           addVerticalSpace(7),
                                           Text(
                                             item['extras'],
-                                            style: TextStyle(
-                                              color: Colors.grey[400],
+                                            style: themeData.textTheme.bodyText2
+                                                ?.copyWith(
                                               fontSize: 17,
                                             ),
                                           ),
-                                          addVerticalSpace(17),
+                                          addVerticalSpace(15),
                                           Row(
                                             children: [
                                               const Icon(
@@ -101,19 +100,17 @@ class SecondPage extends StatelessWidget {
                                                 color: colorSec,
                                               ),
                                               addHorizontalSpace(10),
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: <TextSpan>[
-                                                    TextSpan(
-                                                      text: item['rating']
-                                                          .toString(),
-                                                      style: const TextStyle(
-                                                        fontSize: 18,
-                                                        fontWeight:
-                                                            FontWeight.w800,
-                                                      ),
-                                                    ),
-                                                  ],
+                                              Baseline(
+                                                baselineType:
+                                                    TextBaseline.alphabetic,
+                                                baseline: 22,
+                                                child: Text(
+                                                  item['rating'].toString(),
+                                                  style: themeData
+                                                      .textTheme.caption
+                                                      ?.copyWith(
+                                                    fontSize: 18.5,
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -229,37 +226,26 @@ class SecondPage extends StatelessWidget {
                         children: [
                           Text(
                             'Description',
-                            style: TextStyle(
+                            style: themeData.textTheme.bodyText2?.copyWith(
                               fontSize: 17,
-                              color: Colors.white.withOpacity(0.7),
                             ),
                           ),
-                          addVerticalSpace(15),
+                          addVerticalSpace(12),
                           ReadMoreText(
                             item['description'],
-                            style: TextStyle(
-                              fontSize: 17,
-                              wordSpacing: 1.2,
-                              height: 1.45,
-                              color: Colors.white.withOpacity(0.85),
-                            ),
+                            style: themeData.textTheme.subtitle1,
                             trimLength: 80,
                             trimCollapsedText: 'Read more',
-                            trimExpandedText: 'Read less',
-                            moreStyle: const TextStyle(
-                              fontSize: 16,
-                              wordSpacing: 1.2,
-                              height: 1.1,
-                              fontWeight: FontWeight.w500,
+                            trimExpandedText: ' Read less',
+                            moreStyle: themeData.textTheme.subtitle1?.copyWith(
                               color: colorSecondaryVariant,
                             ),
                           ),
                           addVerticalSpace(25),
                           Text(
                             'Size',
-                            style: TextStyle(
+                            style: themeData.textTheme.bodyText2?.copyWith(
                               fontSize: 17,
-                              color: Colors.white.withOpacity(0.7),
                             ),
                           ),
                           addVerticalSpace(10),
@@ -272,9 +258,9 @@ class SecondPage extends StatelessWidget {
                                 children: [
                                   Text(
                                     'Price',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white.withOpacity(0.8),
+                                    style:
+                                        themeData.textTheme.bodyText2?.copyWith(
+                                      fontSize: 17,
                                     ),
                                   ),
                                   addVerticalSpace(2),
@@ -291,7 +277,10 @@ class SecondPage extends StatelessWidget {
                                         ),
                                         TextSpan(
                                           text: formatCurrency(item['price']),
-                                          style: const TextStyle(fontSize: 21),
+                                          style: themeData.textTheme.headline6
+                                              ?.copyWith(
+                                            fontSize: 21,
+                                          ),
                                         ),
                                       ],
                                     ),

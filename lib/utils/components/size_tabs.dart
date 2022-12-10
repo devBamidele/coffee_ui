@@ -1,3 +1,4 @@
+import 'package:coffee_ui/utils/components/outline_size_button.dart';
 import 'package:coffee_ui/utils/components/size_text_button.dart';
 import 'package:coffee_ui/utils/constants.dart';
 import 'package:coffee_ui/utils/widget_functions.dart';
@@ -25,6 +26,8 @@ class _SizeTabsState extends State<SizeTabs> {
     });
   }
 
+  Duration myDuration = const Duration(milliseconds: 250);
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -32,27 +35,13 @@ class _SizeTabsState extends State<SizeTabs> {
       child: Row(
         children: [
           AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
+            duration: myDuration,
             child: size[0] == true
-                ? OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      shape: buttonShape,
-                      fixedSize: buttonSize,
-                      side: const BorderSide(
-                        width: 1.75,
-                        color: colorSecondaryVariant,
-                      ),
-                    ),
+                ? OutlinedSizeButton(
                     onPressed: () {
                       sizeSelected(0);
                     },
-                    child: const Text(
-                      'S',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: colorSecondaryVariant,
-                      ),
-                    ),
+                    word: 'S',
                   )
                 : SizeTextButton(
                     onPressed: () {
@@ -63,27 +52,13 @@ class _SizeTabsState extends State<SizeTabs> {
           ),
           addHorizontalSpace(pageSpacing),
           AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
+            duration: myDuration,
             child: size[1] == true
-                ? OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      shape: buttonShape,
-                      fixedSize: buttonSize,
-                      side: const BorderSide(
-                        width: 1.75,
-                        color: colorSecondaryVariant,
-                      ),
-                    ),
+                ? OutlinedSizeButton(
                     onPressed: () {
                       sizeSelected(1);
                     },
-                    child: const Text(
-                      'M',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: colorSecondaryVariant,
-                      ),
-                    ),
+                    word: 'M',
                   )
                 : SizeTextButton(
                     onPressed: () {
@@ -94,27 +69,13 @@ class _SizeTabsState extends State<SizeTabs> {
           ),
           addHorizontalSpace(pageSpacing),
           AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
+            duration: myDuration,
             child: size[2] == true
-                ? OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      shape: buttonShape,
-                      fixedSize: buttonSize,
-                      side: const BorderSide(
-                        width: 1.75,
-                        color: colorSecondaryVariant,
-                      ),
-                    ),
+                ? OutlinedSizeButton(
                     onPressed: () {
                       sizeSelected(2);
                     },
-                    child: const Text(
-                      'L',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: colorSecondaryVariant,
-                      ),
-                    ),
+                    word: 'L',
                   )
                 : SizeTextButton(
                     onPressed: () {
