@@ -90,9 +90,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: FredokaOne
+    - family: Comfortaa
       fonts:
-      - asset: assets/fonts/FredokaOne-Regular.ttf
+      - asset: assets/fonts/Comfortaa-Bold.ttf
     - family: Lexend
       fonts:
       - asset: assets/fonts/Lexend-Regular.ttf

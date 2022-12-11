@@ -55,11 +55,11 @@ final buttonShape = RoundedRectangleBorder(
 
 final TextTheme textThemeDefault = TextTheme(
   // The Header Text
-  headline1: TextStyle(
-    fontFamily: 'FredokaOne',
-    fontSize: 38,
-    letterSpacing: 0.5,
-    color: Colors.white.withOpacity(0.9),
+  headline1: const TextStyle(
+    fontFamily: 'Comfortaa',
+    fontSize: 35,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
   ),
 
   // The 'Extra's' text for the Category tile
