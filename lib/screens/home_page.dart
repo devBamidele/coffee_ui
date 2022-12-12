@@ -115,6 +115,7 @@ class _HomePageState extends State<HomePage> {
                           padding:
                               EdgeInsets.symmetric(horizontal: pageSpacing),
                           child: TextField(
+                            cursorColor: colorSec,
                             decoration: InputDecoration(
                               prefixIcon: Padding(
                                 padding:

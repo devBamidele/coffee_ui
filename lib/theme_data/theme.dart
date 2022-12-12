@@ -9,7 +9,6 @@ class MyTheme {
     textTheme: textThemeDefault,
     scaffoldBackgroundColor: colorPrimary,
     inputDecorationTheme: InputDecorationTheme(
-      // prefixIconColor: colorSec,
       focusedBorder: inputBorder.copyWith(
         borderSide: const BorderSide(
           color: Colors.white60,

@@ -8,6 +8,7 @@ const colorPrimaryVariant = Color(0xff101419);
 const colorSecondaryVariant = Color(0xffD07741);
 const buttonColor = Color(0xff141921);
 const colorGrey = Color(0xff4E5053);
+const filledColor = Color(0xff141921);
 
 double pageSpacing = 20;
 double borderRadius = 22;
@@ -18,7 +19,7 @@ const buttonSize = Size(100, 30);
 final inputBorder = OutlineInputBorder(
   borderSide: BorderSide(color: borderColor),
   borderRadius: const BorderRadius.all(
-    Radius.circular(10),
+    Radius.circular(15),
   ),
 );
 
