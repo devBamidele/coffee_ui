@@ -11,13 +11,13 @@ Improving my UI development skills with flutter
 
 ## Screenshots
 ### Home Screen
-<img src = "screenshots/Shot1.jpg" width = "400">
+<img src = "screenshots/Shot44.jpg" width = "400">
 
 ### Item Screen1
-<img src = "screenshots/Shot2.jpg" width = "400">
+<img src = "screenshots/Shot33.jpg" width = "400">
 
 ### Item Screen2
-<img src = "screenshots/Shot3.jpg" width = "400">
+<img src = "screenshots/shot22.jpg" width = "400">
 
 ### Item Screen3
-<img src = "screenshots/Shot4.jpg" width = "400">
+<img src = "screenshots/shot11.jpg" width = "400">
