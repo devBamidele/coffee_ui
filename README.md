@@ -9,7 +9,7 @@ Improving my UI development skills with flutter
 <img src = "screenshots/coffeeUI.png" width = "400">
 <img src = "screenshots/coffeeUI2.png" width = "400">
 
-## The App 
+## Screenshots
 ### Home Screen
 <img src = "screenshots/Shot1.jpg" width = "400">
 
