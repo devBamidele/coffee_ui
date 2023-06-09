@@ -18,4 +18,20 @@ class MyTheme {
       enabledBorder: inputBorder,
     ),
   );
+
+  ThemeData base = ThemeData.dark().copyWith(
+    useMaterial3: true,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    textTheme: textThemeDefault,
+    scaffoldBackgroundColor: colorPrimary,
+    inputDecorationTheme: InputDecorationTheme(
+      focusedBorder: inputBorder.copyWith(
+        borderSide: const BorderSide(
+          color: Colors.white60,
+          width: 1.5,
+        ),
+      ),
+      enabledBorder: inputBorder,
+    ),
+  );
 }

@@ -104,7 +104,7 @@ class CoffeeTile extends StatelessWidget {
                     children: [
                       Text(
                         coffee,
-                        style: themeData.textTheme.headline5,
+                        style: themeData.textTheme.headlineSmall,
                       ),
                       addVerticalSpace(3),
                       Text(

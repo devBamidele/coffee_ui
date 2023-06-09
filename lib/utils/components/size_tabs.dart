@@ -26,7 +26,7 @@ class _SizeTabsState extends State<SizeTabs> {
     });
   }
 
-  Duration myDuration = const Duration(milliseconds: 250);
+  Duration myDuration = const Duration(milliseconds: 200);
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +38,14 @@ class _SizeTabsState extends State<SizeTabs> {
             duration: myDuration,
             child: size[0] == true
                 ? OutlinedSizeButton(
+                    key: const ValueKey<String>('Small Outlined'),
                     onPressed: () {
                       sizeSelected(0);
                     },
                     word: 'S',
                   )
                 : SizeTextButton(
+                    key: const ValueKey<String>('Small Filled'),
                     onPressed: () {
                       sizeSelected(0);
                     },
@@ -55,12 +57,14 @@ class _SizeTabsState extends State<SizeTabs> {
             duration: myDuration,
             child: size[1] == true
                 ? OutlinedSizeButton(
+                    key: const ValueKey<String>('Medium Outlined'),
                     onPressed: () {
                       sizeSelected(1);
                     },
                     word: 'M',
                   )
                 : SizeTextButton(
+                    key: const ValueKey<String>('Medium Filled'),
                     onPressed: () {
                       sizeSelected(1);
                     },
@@ -72,12 +76,14 @@ class _SizeTabsState extends State<SizeTabs> {
             duration: myDuration,
             child: size[2] == true
                 ? OutlinedSizeButton(
+                    key: const ValueKey<String>('Large Outlined'),
                     onPressed: () {
                       sizeSelected(2);
                     },
                     word: 'L',
                   )
                 : SizeTextButton(
+                    key: const ValueKey<String>('Large Filled'),
                     onPressed: () {
                       sizeSelected(2);
                     },

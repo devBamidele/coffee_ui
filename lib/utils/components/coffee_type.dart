@@ -26,7 +26,7 @@ class CoffeeType extends StatelessWidget {
             children: [
               Text(
                 coffeeType,
-                style: themeData.textTheme.subtitle2?.copyWith(
+                style: themeData.textTheme.titleSmall?.copyWith(
                   color: selected ? colorSec : borderColor,
                 ),
               ),
